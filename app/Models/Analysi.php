@@ -7,9 +7,11 @@ use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mehradsadeghi\FilterQueryString\FilterQueryString;
 
 class Analysi extends Model
 {
+    use FilterQueryString;
     use SoftDeletes;
     use Auditable;
     use HasFactory;
@@ -17,6 +19,32 @@ class Analysi extends Model
     public $table = 'analysis';
 
     protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $filters = [
+        'naissance',
+        'heure_prelev',
+        'date_prelev',
+        'identification',
+        'prenom',
+        'nom',
+        'technique',
+        'ct',
+        'resultat',
+        'conclusion',
+        'origine_prelev',
+        'date_rendu',
+        'type_cas',
+        'age',
+        'sexe',
+        'email',
+        'whatsapp',
+        'code_interne',
+        'adresse',
+        'telephone',
         'created_at',
         'updated_at',
         'deleted_at',

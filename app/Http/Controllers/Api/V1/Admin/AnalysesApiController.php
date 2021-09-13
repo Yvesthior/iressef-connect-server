@@ -17,7 +17,8 @@ class AnalysesApiController extends Controller
     {
         abort_if(Gate::denies('analysi_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new AnalysiResource(Analysi::all());
+        /* $filters = Input::only('code_interne', 'identification'); */
+        return new AnalysiResource(Analysi::select("*")->filter()->get());
     }
 
     public function store(StoreAnalysiRequest $request)
